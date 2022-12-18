@@ -6,7 +6,7 @@ import file_handler
 def resize_process(img_name: str, q: int) -> None:
     img_file = Image.open(rf'{os.getcwd()}\{img_name}')
     img_file.save(rf'{os.getcwd()}\{img_name}', quality=q)
-    print(f'Файл {img_name} успешно преобразован!')
+    print(f'Файл "{img_name}" успешно преобразован!')
 
 
 def image_resize() -> None:
@@ -30,4 +30,4 @@ def image_resize() -> None:
         for j in range(0, len(img_files)):
             resize_process(img_files[j], quality)
     else:
-        resize_process(img_files[chosen_file_id], quality)
+        resize_process(img_files[chosen_file_id-1], quality)

@@ -9,7 +9,7 @@ def delete_files_starts_with(key: str) -> None:
 
 def delete_files_ends_with(key: str) -> None:
     for file in os.listdir(os.getcwd()):
-        if file.endswith(key):
+        if file.split('.')[0].endswith(key):
             os.remove(rf'{os.getcwd()}\{file}')
 
 
