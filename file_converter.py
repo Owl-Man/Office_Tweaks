@@ -15,13 +15,17 @@ def pdf_to_docx_process(file_name: str) -> None:
 def convert_pdf_to_docx() -> None:
     pdf_files = file_handler.find_file_with_ext('pdf')
 
+    if len(pdf_files) == 0:
+        print('В данном каталоге нет файлов с расширением .pdf\n')
+        return
+
     print('Список файлов с раширением pdf в данном каталоге: \n')
 
     for i in range(0, len(pdf_files)):
         print(f'{i + 1}. {pdf_files[i]}')
 
     chosen_file_id = int(
-        input('Введите номер файла для преобразования (чтобы преобразовать все файлы из данного каталога введите 0: '))
+        input('Введите номер файла для преобразования (чтобы преобразовать все файлы из данного каталога введите 0): '))
 
     if chosen_file_id not in range(0, len(pdf_files) + 1):
         print('Неверный номер')
@@ -31,7 +35,7 @@ def convert_pdf_to_docx() -> None:
         for j in range(0, len(pdf_files)):
             pdf_to_docx_process(pdf_files[j])
     else:
-        pdf_to_docx_process(pdf_files[chosen_file_id-1])
+        pdf_to_docx_process(pdf_files[chosen_file_id - 1])
 
 
 def docx_to_pdf_process(file_name: str) -> None:
@@ -42,13 +46,17 @@ def docx_to_pdf_process(file_name: str) -> None:
 def convert_docx_to_pdf() -> None:
     docx_files = file_handler.find_file_with_ext('docx')
 
+    if len(docx_files) == 0:
+        print('В данном каталоге нет файлов с расширением .docx\n')
+        return
+
     print('Список файлов с раширением docx в данном каталоге: \n')
 
     for i in range(0, len(docx_files)):
         print(f'{i + 1}. {docx_files[i]}')
 
     chosen_file_id = int(
-        input('Введите номер файла для преобразования (чтобы преобразовать все файлы из данного каталога введите 0: '))
+        input('Введите номер файла для преобразования (чтобы преобразовать все файлы из данного каталога введите 0): '))
 
     if chosen_file_id not in range(0, len(docx_files) + 1):
         print('Неверный номер')
@@ -58,4 +66,4 @@ def convert_docx_to_pdf() -> None:
         for j in range(0, len(docx_files)):
             docx_to_pdf_process(docx_files[j])
     else:
-        docx_to_pdf_process(docx_files[chosen_file_id-1])
+        docx_to_pdf_process(docx_files[chosen_file_id - 1])
